@@ -17,6 +17,7 @@
     --tran-02: all 0.2s ease;
 }
 .boxes{
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;

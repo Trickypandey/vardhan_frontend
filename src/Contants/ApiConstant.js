@@ -13,4 +13,9 @@ export const API_ENDPOINTS = {
   GET_NEW_TICKETS: '/api/tickets/new',
   GET_PENDING_TICKETS: '/api/tickets/pending',
   GET_COMPLETED_TICKETS: '/api/tickets/completed',
+  
+  // Customer Endpoints
+  ADD_CUSTOMER: '/api/customers/add',
+  GET_ALL_CUSTOMERS: '/api/customers/getall',
+  GET_ADDRESS_BY_ID: (addressId) => `/api/customers/getAddress/${addressId}`,
 };

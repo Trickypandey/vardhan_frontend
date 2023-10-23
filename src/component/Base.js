@@ -6,9 +6,9 @@ const Base = ({title = "welcome to our site",children}) =>{
         <div className="container-fluid p-0 m-0">
             <Navbar></Navbar>
             {children}
-            <h1>
-                 this is footer
-            </h1>
+            <footer class="container-fluid p-0 m-0 fixed-bottom bg-dark text-light">
+                <h2>Footer</h2>
+            </footer>
         </div>
     )
 }
