@@ -23,7 +23,7 @@ function CustomNavbar(args) {
   return (
     <div>
       <Navbar color="dark" dark expand="md" fixed="" className="px-2">
-        <NavbarBrand tag={ReactLink} to="/">Vardhan</NavbarBrand>
+        <NavbarBrand tag={ReactLink} to="/dashboard">Vardhan</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>

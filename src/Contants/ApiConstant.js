@@ -18,4 +18,9 @@ export const API_ENDPOINTS = {
   ADD_CUSTOMER: '/api/customers/add',
   GET_ALL_CUSTOMERS: '/api/customers/getall',
   GET_ADDRESS_BY_ID: (addressId) => `/api/customers/getAddress/${addressId}`,
+
+
+  // Auth Endpoints
+  LOGIN:'/auth/login',
+  REGISTER:'/auth/register'
 };

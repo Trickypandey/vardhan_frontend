@@ -11,9 +11,13 @@ import {
   Label,
   Row,
 } from "reactstrap";
-import { useState } from "react";
+
+import { useState,useEffect } from "react";
+import AuthService from "../Services/AuthService"; // Import your AuthService
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -31,6 +35,34 @@ const Login = () => {
       password: "",
     });
   };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+  
+    const loginData = {
+      username: data.email, // Assuming the email is used as the username
+      password: data.password,
+    };
+  
+    AuthService.login(loginData) // Call the login method from AuthService with the modified data
+      .then((response) => {
+        console.log("Login successful", response);
+
+        navigate("/dashboard")
+
+      })
+      .catch((error) => {
+        console.error("Login failed", error);
+        // Handle login error, e.g., show an error message
+      });
+  };
+
+  useEffect(() => {
+    if (AuthService.isLoggedIn()) {
+
+      navigate('/dashboard');
+    }
+  }, [navigate]);
 
   return (
     <Container>
@@ -64,8 +96,10 @@ const Login = () => {
                   />
                 </FormGroup>
 
-                <div className="text-center" >
-                  <Button color="primary">Login</Button>
+                <div className="text-center">
+                  <Button color="primary" onClick={handleLogin}>
+                    Login
+                  </Button>
                   <Button
                     onClick={resetData}
                     color="secondary"

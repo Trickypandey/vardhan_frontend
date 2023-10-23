@@ -15,7 +15,7 @@ import Login from './pages/login';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: <Login />,
     errorElement: <ErrorPage />,
   },
   {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/",
+    path: "/dashboard",
     element: <Dashboard />,
     errorElement: <ErrorPage />,
   },
