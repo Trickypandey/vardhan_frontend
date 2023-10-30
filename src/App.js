@@ -10,6 +10,9 @@ import About from './pages/about';
 import AddCustomer from './pages/AddCustomer';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './pages/login';
+import CustomerDashBoard from './pages/CustomerDashBoard';
+import UserDashboard from './pages/UserDashboard';
+import AddUserForm from './pages/AddUser';
 
 
 const router = createBrowserRouter([
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/addcustomer",
+    path: "/customer/addcustomer",
     element: <AddCustomer />,
     errorElement: <ErrorPage />,
   },
@@ -36,6 +39,21 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/customer",
+    element: <CustomerDashBoard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/user",
+    element: <UserDashboard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/user/adduser",
+    element: <AddUserForm />,
     errorElement: <ErrorPage />,
   }
 ])

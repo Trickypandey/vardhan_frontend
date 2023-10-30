@@ -39,6 +39,13 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
   
+    // Check if email and password are not empty or null
+    if (!data.email || !data.password) {
+      // You can show an error message or perform some action here
+      console.error("Email and password are required");
+      return;
+    }
+
     const loginData = {
       username: data.email, // Assuming the email is used as the username
       password: data.password,

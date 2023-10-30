@@ -22,5 +22,9 @@ export const API_ENDPOINTS = {
 
   // Auth Endpoints
   LOGIN:'/auth/login',
-  REGISTER:'/auth/register'
+  REGISTER:'/auth/register',
+
+  // user
+  CREATE_NEW_USER :'/api/users/create_user',
+  GET_ALL_USER :'/api/users/alluser'
 };

@@ -55,6 +55,28 @@ const NewTaskCount = () => {
     return newTaskCount; // Return the count value
 };
 
+const usePendingTicketCount = () => {
+    const [pendingTicketCount, setPendingTicketCount] = useState(0);
+  
+    useEffect(() => {
+      const fetchPendingTickets = async () => {
+        try {
+          const response = await TicketService.getPendingTickets();
+          if (response && Array.isArray(response.data)) {
+            const count = response.data.filter((ticket) => ticket.status === 'ASSIGNED').length;
+            setPendingTicketCount(count);
+          }
+        } catch (error) {
+          console.error('Error fetching pending tickets:', error);
+        }
+      };
+  
+      fetchPendingTickets();
+    }, []);
+  
+    return pendingTicketCount;
+  };
+
 const CompletedTaskCount = () => {
   const [completedTaskCount, setCompletedTaskCount] = useState(0);
 
@@ -82,6 +104,7 @@ const Dashboard = () => {
     const newTaskCount = NewTaskCount(); // Call the function to get the count
     const completedTaskCount = CompletedTaskCount();
     const allCustomerCount = AllCustomers();
+    const allPendingTicketCount = usePendingTicketCount();
 
     return (
         <Base>
@@ -98,7 +121,7 @@ const Dashboard = () => {
                 </div>
                 <div className="box box3">
                     <i className="fa fa-share" aria-hidden="true"></i>
-                    <span className="text">Completed Task</span>
+                    <span className="text">Completed Tickets</span>
                     <span className="number">{completedTaskCount}</span>
                 </div>
             </div>
@@ -115,8 +138,8 @@ const Dashboard = () => {
                 </div>
                 <div className="box box3">
                     <i className="fa fa-share" aria-hidden="true"></i>
-                    <span className="text">Pending Task</span>
-                    <span className="number">{completedTaskCount}</span>
+                    <span className="text">Pending Tickets</span>
+                    <span className="number">{allPendingTicketCount}</span>
                 </div>
             </div>
         </Base> 

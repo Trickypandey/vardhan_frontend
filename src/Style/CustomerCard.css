@@ -1,0 +1,17 @@
+/* CustomerCard.css */
+
+/* Apply styles directly to the Card component */
+.card {
+    width: 100%;
+    background-color: yellow;
+    margin-top: 50px;
+}
+
+/* CustomerCard.css */
+
+.cardContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
