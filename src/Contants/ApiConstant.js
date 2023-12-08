@@ -13,6 +13,8 @@ export const API_ENDPOINTS = {
   GET_NEW_TICKETS: '/api/tickets/new',
   GET_PENDING_TICKETS: '/api/tickets/pending',
   GET_COMPLETED_TICKETS: '/api/tickets/completed',
+  GET_USER_BY_TICKET_ID:'/api/tickets/userWithTicket',
+  GET_ALL_FREE_USER:'/api/tickets/freeusers',
   
   // Customer Endpoints
   ADD_CUSTOMER: '/api/customers/add',

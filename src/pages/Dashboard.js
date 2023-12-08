@@ -16,7 +16,6 @@ const AllCustomers = () => {
           console.log("list of"+response);
           if (response && Array.isArray(response.data)) {
             const count = response.data.length
-            
             setCustomers(count);
           }
         } catch (error) {
@@ -76,7 +75,28 @@ const usePendingTicketCount = () => {
   
     return pendingTicketCount;
   };
-
+  const useTotalFreeEngCount = () => {
+    const [freeEngCount, setFreeEngCount] = useState(0);
+  
+    useEffect(() => {
+      const fetchFreeEng = async () => {
+        try {
+          const response = await TicketService.getFreeEng();
+          if (response && Array.isArray(response.data)) {
+            console.log('Free Eng Objects:', response.data); // Log the objects
+            const count = response.data.length;
+            setFreeEngCount(count);
+          }
+        } catch (error) {
+          console.error('Error fetching pending tickets:', error);
+        }
+      };
+  
+      fetchFreeEng();
+    }, []);
+  
+    return freeEngCount;
+  }
 const CompletedTaskCount = () => {
   const [completedTaskCount, setCompletedTaskCount] = useState(0);
 
@@ -105,6 +125,7 @@ const Dashboard = () => {
     const completedTaskCount = CompletedTaskCount();
     const allCustomerCount = AllCustomers();
     const allPendingTicketCount = usePendingTicketCount();
+    const freeEngCount = useTotalFreeEngCount();
 
     return (
         <Base>
@@ -134,7 +155,7 @@ const Dashboard = () => {
                 <div className="box box2">
                     <i className="fa fa-users" aria-hidden="true"></i>
                     <span className="text">Free Engineers</span>
-                    <span className="number">{allCustomerCount}</span>
+                    <span className="number">{freeEngCount}</span>
                 </div>
                 <div className="box box3">
                     <i className="fa fa-share" aria-hidden="true"></i>

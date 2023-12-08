@@ -79,6 +79,16 @@ const TicketService = {
       params: { newAssignedTo },
     });
   },
+  getUserWithTicketId: (ticketId) => {
+    return axios.patch(`${API_BASE_URL}${API_ENDPOINTS.GET_USER_BY_TICKET_ID(ticketId)}`, null, {
+      withCredentials: true, // Set withCredentials to true
+
+      headers: {
+        'Authorization': getBearerToken()
+      },
+      params: { ticketId },
+    });
+  },
 
   getNewTickets: () => {
     return axios.get(`${API_BASE_URL}${API_ENDPOINTS.GET_NEW_TICKETS}`, {
@@ -109,6 +119,15 @@ const TicketService = {
       }
     });
   },
+  getFreeEng: () => {
+    return axios.get(`${API_BASE_URL}${API_ENDPOINTS.GET_ALL_FREE_USER}`, {
+      withCredentials: true, // Set withCredentials to true
+
+      headers: {
+        'Authorization': getBearerToken()
+      }
+    });
+  }
 };
 
 export default TicketService;

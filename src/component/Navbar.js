@@ -65,6 +65,17 @@ function CustomNavbar(args) {
                 <DropdownItem tag={ReactLink} to="/user/adduser">Add New Customer</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+              Tasks
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem tag={ReactLink} to="/task">Task</DropdownItem>
+                <DropdownItem tag={ReactLink} to="/task/assignment">Add New Customer</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <NavItem>
+            </NavItem>
           </Nav>
           <NavbarText>Profile</NavbarText>
         </Collapse>

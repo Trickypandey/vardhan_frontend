@@ -13,6 +13,8 @@ import Login from './pages/login';
 import CustomerDashBoard from './pages/CustomerDashBoard';
 import UserDashboard from './pages/UserDashboard';
 import AddUserForm from './pages/AddUser';
+import TaskDashBoard from './pages/TaskDashBoard';
+ import AssignTask from './pages/AssignTask';
 
 
 const router = createBrowserRouter([
@@ -54,6 +56,16 @@ const router = createBrowserRouter([
   {
     path: "/user/adduser",
     element: <AddUserForm />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/task",
+    element: <TaskDashBoard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/task/assignment",
+    element: <AssignTask />,
     errorElement: <ErrorPage />,
   }
 ])
